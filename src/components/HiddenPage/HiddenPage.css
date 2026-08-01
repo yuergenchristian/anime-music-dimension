@@ -1,0 +1,49 @@
+.hidden-page {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	padding: 28px;
+	background:
+		radial-gradient(circle at center, rgba(255, 255, 255, 0.16), transparent 32%),
+		linear-gradient(135deg, #10051f, #030712 65%);
+}
+
+.hidden-card {
+	width: min(680px, 100%);
+	padding: 38px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	background: rgba(0, 0, 0, 0.42);
+	text-align: center;
+	box-shadow: 0 0 70px rgba(198, 136, 255, 0.22);
+}
+
+.hidden-card p {
+	margin: 0 0 12px;
+	color: #d9b6ff;
+	font-size: 13px;
+	font-weight: 900;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+
+.hidden-card h1 {
+	margin: 0 0 14px;
+	font-size: clamp(42px, 8vw, 96px);
+	line-height: 0.95;
+}
+
+.hidden-card span {
+	display: block;
+	margin-bottom: 26px;
+	color: var(--color-muted);
+}
+
+.hidden-card button {
+	min-height: 52px;
+	padding: 0 22px;
+	color: #fff;
+	border: 1px solid rgba(217, 182, 255, 0.5);
+	background: rgba(217, 182, 255, 0.14);
+	font-weight: 900;
+	text-transform: uppercase;
+}
