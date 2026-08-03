@@ -24,9 +24,9 @@ export const songs: Song[] = [
 			glow: "rgba(153, 210, 116, 0.65)"
 		},
 		assets: {
-			video: "/assets/songs/01-observation/video.mp4",
-			audio: "/assets/songs/01-observation/audio.mp3",
-			cover: "/assets/songs/01-observation/cover.jpg"
+			video: "/assets/songs/01-observation/01-video.mp4",
+			audio: "/assets/songs/01-observation/01-audio.mp3",
+			cover: "/assets/songs/01-observation/01-cover.jpg"
 		},
 		ui: {
 			label: "Observation Mode",
@@ -54,9 +54,9 @@ export const songs: Song[] = [
 			glow: "rgba(171, 184, 236, 0.55)"
 		},
 		assets: {
-			video: "/assets/songs/02-resting/video.mp4",
-			audio: "/assets/songs/02-resting/audio.mp3",
-			cover: "/assets/songs/02-resting/cover.jpg"
+			video: "/assets/songs/02-resting/02-video.mp4",
+			audio: "/assets/songs/02-resting/02-audio.mp3",
+			cover: "/assets/songs/02-resting/02-cover.jpg"
 		},
 		ui: {
 			label: "Rest Mode",
@@ -84,9 +84,9 @@ export const songs: Song[] = [
 			glow: "rgba(255, 211, 107, 0.65)"
 		},
 		assets: {
-			video: "/assets/songs/03-nostalgia/video.mp4",
-			audio: "/assets/songs/03-nostalgia/audio.mp3",
-			cover: "/assets/songs/03-nostalgia/cover.jpg"
+			video: "/assets/songs/03-nostalgia/03-video.mp4",
+			audio: "/assets/songs/03-nostalgia/03-audio.mp3",
+			cover: "/assets/songs/03-nostalgia/03-cover.jpg"
 		},
 		ui: {
 			label: "Festival Memory",
@@ -114,9 +114,9 @@ export const songs: Song[] = [
 			glow: "rgba(255, 128, 179, 0.6)"
 		},
 		assets: {
-			video: "/assets/songs/04-otona/video.mp4",
-			audio: "/assets/songs/04-otona/audio.mp3",
-			cover: "/assets/songs/04-otona/cover.jpg"
+			video: "/assets/songs/04-otona/04-video.mp4",
+			audio: "/assets/songs/04-otona/04-audio.mp3",
+			cover: "/assets/songs/04-otona/04-cover.jpg"
 		},
 		ui: {
 			label: "Ghost Business",
@@ -144,9 +144,9 @@ export const songs: Song[] = [
 			glow: "rgba(126, 179, 255, 0.6)"
 		},
 		assets: {
-			video: "/assets/songs/05-friendship/video.mp4",
-			audio: "/assets/songs/05-friendship/audio.mp3",
-			cover: "/assets/songs/05-friendship/cover.jpg"
+			video: "/assets/songs/05-friendship/05-video.mp4",
+			audio: "/assets/songs/05-friendship/05-audio.mp3",
+			cover: "/assets/songs/05-friendship/05-cover.jpg"
 		},
 		ui: {
 			label: "Cat Lounge",
@@ -174,9 +174,9 @@ export const songs: Song[] = [
 			glow: "rgba(230, 191, 254, 0.55)"
 		},
 		assets: {
-			video: "/assets/songs/06-pets/video.mp4",
-			audio: "/assets/songs/06-pets/audio.mp3",
-			cover: "/assets/songs/06-pets/cover.jpg"
+			video: "/assets/songs/06-pets/06-video.mp4",
+			audio: "/assets/songs/06-pets/06-audio.mp3",
+			cover: "/assets/songs/06-pets/06-cover.jpg"
 		},
 		ui: {
 			label: "Pet Journal",
@@ -204,9 +204,9 @@ export const songs: Song[] = [
 			glow: "rgba(254, 128, 129, 0.6)"
 		},
 		assets: {
-			video: "/assets/songs/07-kokoroe/video.mp4",
-			audio: "/assets/songs/07-kokoroe/audio.mp3",
-			cover: "/assets/songs/07-kokoroe/cover.jpg"
+			video: "/assets/songs/07-kokoroe/07-video.mp4",
+			audio: "/assets/songs/07-kokoroe/07-audio.mp3",
+			cover: "/assets/songs/07-kokoroe/07-cover.jpg"
 		},
 		ui: {
 			label: "Spark Knight Log",

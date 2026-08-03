@@ -52,15 +52,27 @@ export function SongStage({
 					<small>{song.assets.video}</small>
 				</div>
 
+				<button
+					className="song-arrow-button song-arrow-button--left"
+					onClick={onPrevious}
+					disabled={!canGoPrevious}
+					aria-label="Go to previous song"
+				>
+					&lt;
+				</button>
+
+				<button
+					className="song-arrow-button song-arrow-button--right"
+					onClick={onNext}
+					disabled={!canGoNext}
+					aria-label="Go to next song"
+				>
+					&gt;
+				</button>
+
 				<div className="song-control-panel">
-					<button onClick={onPrevious} disabled={!canGoPrevious}>
-						Previous
-					</button>
-
-					<button onClick={onReturnHome}>Return Home</button>
-
-					<button onClick={onNext} disabled={!canGoNext}>
-						Next
+					<button className="song-home-button" onClick={onReturnHome}>
+						Return Home
 					</button>
 				</div>
 
