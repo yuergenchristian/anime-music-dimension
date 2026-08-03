@@ -76,12 +76,15 @@ export function SongStage({
 					</button>
 				</div>
 
-				<button
-					className={`song-secret-letter ${letterCollected ? "collected" : ""}`}
-					onClick={onCollectLetter}
-				>
-					{letterCollected ? "Collected" : song.ui.secretLetter}
-				</button>
+				{!letterCollected && (
+					<button
+						className="song-secret-letter"
+						onClick={onCollectLetter}
+						aria-label={`Collect secret letter ${song.ui.secretLetter}`}
+					>
+						<span>{song.ui.secretLetter}</span>
+					</button>
+				)}
 			</div>
 		</section>
 	);

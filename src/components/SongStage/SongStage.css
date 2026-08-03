@@ -106,44 +106,40 @@
 }
 
 .song-secret-letter {
-	min-height: 48px;
-	padding: 0 18px;
-	color: var(--color-text);
-	border: 1px solid color-mix(in srgb, var(--song-primary) 46%, transparent);
-	background: color-mix(in srgb, var(--song-primary) 16%, transparent);
-	font-weight: 900;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	transition: 0.2s;
-}
-
-.song-control-panel button:hover,
-.song-secret-letter:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 0 24px var(--song-glow);
-}
-
-.song-secret-letter {
 	position: absolute;
 	right: 42px;
 	top: 42px;
+	z-index: 9;
 	width: 64px;
 	height: 64px;
 	padding: 0;
+	display: grid;
+	place-items: center;
+	border: 1px solid color-mix(in srgb, var(--song-primary) 72%, transparent);
 	border-radius: 18px;
 	color: var(--song-dark);
 	background: var(--song-primary);
 	font-size: 30px;
+	font-weight: 1000;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 	box-shadow: 0 0 32px var(--song-glow);
 	animation: softFloat 2.8s ease-in-out infinite;
+	transition: 0.2s ease;
 }
 
-.song-secret-letter.collected {
-	width: auto;
-	padding: 0 18px;
-	font-size: 14px;
-	color: var(--color-text);
-	background: rgba(0, 0, 0, 0.35);
+.song-secret-letter:hover {
+	box-shadow: 0 0 44px var(--song-glow);
+	filter: brightness(1.12);
+}
+
+.song-secret-letter:active {
+	animation: secretBubblePop 0.32s ease-out;
+}
+
+.song-secret-letter span {
+	display: block;
+	pointer-events: none;
 }
 
 .song-arrow-button {
@@ -202,6 +198,23 @@
 .song-home-button:hover {
 	transform: translateY(-3px);
 	box-shadow: 0 0 24px var(--song-glow);
+}
+
+@keyframes secretBubblePop {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	45% {
+		transform: scale(1.35);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(0);
+		opacity: 0;
+	}
 }
 
 @media (max-width: 900px) {

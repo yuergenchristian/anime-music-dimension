@@ -81,14 +81,15 @@ function App() {
 	}
 
 	function collectSecretLetter() {
-		runTransition("Sending Letter to Secret Code Paper", "up", () => {
-			setCollectedLetters((currentLetters) => {
-				const updatedLetters = [...currentLetters];
-				updatedLetters[currentSongIndex] = secretLetters[currentSongIndex].letter;
-				return updatedLetters;
-			});
+		setCollectedLetters((currentLetters) => {
+			if (currentLetters[currentSongIndex]) {
+				return currentLetters;
+			}
 
-			setCurrentView("home");
+			const updatedLetters = [...currentLetters];
+			updatedLetters[currentSongIndex] = secretLetters[currentSongIndex].letter;
+
+			return updatedLetters;
 		});
 	}
 
