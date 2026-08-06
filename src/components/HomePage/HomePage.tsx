@@ -66,10 +66,6 @@ export function HomePage({
 					</p>
 
 					<div className="home-actions">
-						<button className="home-primary-button" onClick={onEnterSongs}>
-							Enter Current Song
-						</button>
-
 						<button className="home-secondary-button" onClick={handleActivateAudio}>
 							{audioStarted ? "Home Audio Active" : "Activate Home Audio"}
 						</button>
@@ -131,6 +127,14 @@ export function HomePage({
 					</div>
 				</aside>
 			</div>
+
+			<button
+				className="home-down-button"
+				onClick={onEnterSongs}
+				aria-label="Enter current song"
+			>
+				↓
+			</button>
 		</section>
 	);
 }

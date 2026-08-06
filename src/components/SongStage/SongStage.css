@@ -200,6 +200,31 @@
 	box-shadow: 0 0 24px var(--song-glow);
 }
 
+.song-up-button {
+	position: fixed;
+	left: 50%;
+	top: 24px;
+	z-index: 10;
+	width: 76px;
+	height: 76px;
+	display: grid;
+	place-items: center;
+	border: 1px solid color-mix(in srgb, var(--song-primary) 62%, transparent);
+	border-radius: 50%;
+	color: var(--song-dark);
+	background: var(--song-primary);
+	font-size: 42px;
+	font-weight: 1000;
+	box-shadow: 0 0 32px var(--song-glow);
+	transform: translateX(-50%);
+	transition: 0.2s ease;
+}
+
+.song-up-button:hover {
+	transform: translateX(-50%) scale(1.08);
+	box-shadow: 0 0 46px var(--song-glow);
+}
+
 @keyframes secretBubblePop {
 	0% {
 		transform: scale(1);

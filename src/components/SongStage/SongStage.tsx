@@ -67,11 +67,14 @@ export function SongStage({
 					&gt;
 				</button>
 
-				<div className="song-control-panel">
-					<button className="song-home-button" onClick={onReturnHome}>
-						Return Home
-					</button>
-				</div>
+				
+				<button
+					className="song-up-button"
+					onClick={onReturnHome}
+					aria-label="Return to homepage"
+				>
+					↑
+				</button>
 
 				{!letterCollected && (
 					<button
