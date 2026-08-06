@@ -123,6 +123,7 @@ function App() {
 
 			{currentView === "song" && (
 				<SongStage
+					key={currentSong.id}
 					song={currentSong}
 					currentSongIndex={currentSongIndex}
 					totalSongs={songs.length}

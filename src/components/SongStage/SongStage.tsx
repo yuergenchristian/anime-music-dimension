@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Song } from "../../types/song";
+import { SongVideoPlayer } from "../SongVideoPlayer/SongVideoPlayer";
 import "./SongStage.css";
 
 type SongStageProps = {
@@ -46,11 +47,7 @@ export function SongStage({
 					<span>{song.mood}</span>
 				</div>
 
-				<div className="song-video-placeholder">
-					<p>Video system will be added in the next phase.</p>
-					<strong>{song.ui.status}</strong>
-					<small>{song.assets.video}</small>
-				</div>
+				<SongVideoPlayer song={song} />
 
 				<button
 					className="song-arrow-button song-arrow-button--left"
