@@ -10,23 +10,25 @@
 .song-stage-bg {
 	position: absolute;
 	inset: 0;
+	z-index: 2;
 	background:
 		linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
 		linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 	background-size: 48px 48px;
-	opacity: 0.32;
+	opacity: 0.24;
+	pointer-events: none;
 }
 
 .song-stage-content {
 	position: relative;
-	z-index: 2;
+	z-index: 5;
 	min-height: 100vh;
 	padding: 54px;
 	display: grid;
 	grid-template-columns: 420px minmax(0, 1fr);
-	grid-template-rows: 1fr auto;
 	gap: 24px;
 	align-items: center;
+	pointer-events: none;
 }
 
 .song-info-panel,
@@ -223,6 +225,13 @@
 .song-up-button:hover {
 	transform: translateX(-50%) scale(1.08);
 	box-shadow: 0 0 46px var(--song-glow);
+}
+
+.song-info-panel,
+.song-arrow-button,
+.song-up-button,
+.song-secret-letter {
+	pointer-events: auto;
 }
 
 @keyframes secretBubblePop {

@@ -149,7 +149,7 @@ export function SongVideoPlayer({ song }: SongVideoPlayerProps) {
 					ref={videoRef}
 					className="song-video"
 					poster={song.assets.cover}
-					preload="metadata"
+					preload="auto"
 					playsInline
 					onLoadedMetadata={handleLoadedMetadata}
 					onTimeUpdate={handleTimeUpdate}

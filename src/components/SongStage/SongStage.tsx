@@ -37,6 +37,8 @@ export function SongStage({
 
 	return (
 		<section className={`song-stage app-screen song-stage--${song.theme}`} style={style}>
+			<SongVideoPlayer song={song} />
+			
 			<div className="song-stage-bg"></div>
 
 			<div className="song-stage-content">
@@ -46,8 +48,6 @@ export function SongStage({
 					<h2>{song.artist}</h2>
 					<span>{song.mood}</span>
 				</div>
-
-				<SongVideoPlayer song={song} />
 
 				<button
 					className="song-arrow-button song-arrow-button--left"

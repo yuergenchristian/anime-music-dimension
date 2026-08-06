@@ -1,25 +1,35 @@
 .song-video-player {
-	display: grid;
-	gap: 18px;
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
 }
 
 .song-video-frame {
-	position: relative;
-	min-height: 420px;
-	border: 1px solid color-mix(in srgb, var(--song-primary) 42%, transparent);
-	background: rgba(0, 0, 0, 0.42);
-	box-shadow: 0 0 42px color-mix(in srgb, var(--song-primary) 18%, transparent);
+	position: absolute;
+	inset: 0;
 	overflow: hidden;
-	backdrop-filter: blur(16px);
+	background: #000;
 }
 
 .song-video {
 	width: 100%;
 	height: 100%;
-	min-height: 420px;
 	display: block;
 	object-fit: cover;
 	background: #000;
+	filter: brightness(0.72) saturate(1.12) contrast(1.08);
+}
+
+.song-video-frame::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(circle at 72% 24%, color-mix(in srgb, var(--song-primary) 18%, transparent), transparent 34%),
+		linear-gradient(90deg, rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.62)),
+		linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.74));
+	pointer-events: none;
 }
 
 .song-video-loading,
@@ -27,12 +37,14 @@
 .song-video-ended {
 	position: absolute;
 	inset: 0;
+	z-index: 2;
 	display: grid;
 	place-items: center;
 	padding: 28px;
 	text-align: center;
 	background: rgba(0, 0, 0, 0.58);
 	backdrop-filter: blur(10px);
+	pointer-events: auto;
 }
 
 .song-video-loading span {
@@ -94,11 +106,18 @@
 }
 
 .song-player-panel {
+	position: fixed;
+	left: 50%;
+	bottom: 28px;
+	z-index: 20;
+	width: min(780px, calc(100vw - 40px));
 	padding: 18px;
 	border: 1px solid color-mix(in srgb, var(--song-primary) 42%, transparent);
-	background: rgba(0, 0, 0, 0.34);
-	box-shadow: 0 0 34px color-mix(in srgb, var(--song-primary) 14%, transparent);
-	backdrop-filter: blur(16px);
+	background: rgba(0, 0, 0, 0.46);
+	box-shadow: 0 0 34px color-mix(in srgb, var(--song-primary) 18%, transparent);
+	backdrop-filter: blur(14px);
+	transform: translateX(-50%);
+	pointer-events: auto;
 }
 
 .song-player-header {
@@ -120,7 +139,7 @@
 
 .song-player-header h3 {
 	margin: 0 0 4px;
-	font-size: clamp(24px, 4vw, 42px);
+	font-size: clamp(22px, 3vw, 36px);
 	line-height: 1;
 }
 
@@ -150,9 +169,9 @@
 }
 
 @media (max-width: 900px) {
-	.song-video-frame,
-	.song-video {
-		min-height: 300px;
+	.song-player-panel {
+		bottom: 18px;
+		width: calc(100vw - 28px);
 	}
 
 	.song-player-header {
