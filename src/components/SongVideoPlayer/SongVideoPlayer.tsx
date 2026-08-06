@@ -19,17 +19,12 @@ export function SongVideoPlayer({ song }: SongVideoPlayerProps) {
 	const [volume, setVolume] = useState(0.75);
 
 	useEffect(() => {
-		const video = videoRef.current;
-
-		return () => {
-			if (!video) {
-				return;
-			}
-
-			video.pause();
-			video.src = "";
-			video.load();
-		};
+		setIsReady(false);
+		setIsPlaying(false);
+		setIsEnded(false);
+		setHasError(false);
+		setCurrentTime(0);
+		setDuration(0);
 	}, [song.id]);
 
 	useEffect(() => {
