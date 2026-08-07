@@ -5,9 +5,10 @@ import "./SongVideoPlayer.css";
 
 type SongVideoPlayerProps = {
 	song: Song;
+	onReady?: () => void;
 };
 
-export function SongVideoPlayer({ song }: SongVideoPlayerProps) {
+export function SongVideoPlayer({ song, onReady }: SongVideoPlayerProps) {
 	const videoRef = useRef<HTMLVideoElement | null>(null);
 
 	const [isReady, setIsReady] = useState(false);
@@ -106,8 +107,13 @@ export function SongVideoPlayer({ song }: SongVideoPlayerProps) {
 		}
 
 		setDuration(video.duration || 0);
+		setHasError(false);
+	}
+
+	function handleCanPlay() {
 		setIsReady(true);
 		setHasError(false);
+		onReady?.();
 	}
 
 	function handleTimeUpdate() {
@@ -152,9 +158,13 @@ export function SongVideoPlayer({ song }: SongVideoPlayerProps) {
 					preload="auto"
 					playsInline
 					onLoadedMetadata={handleLoadedMetadata}
+					onCanPlay={handleCanPlay}
 					onTimeUpdate={handleTimeUpdate}
 					onEnded={handleVideoEnded}
-					onError={() => setHasError(true)}
+					onError={() => {
+						setHasError(true);
+						onReady?.();
+					}}
 				>
 					<source src={song.assets.video} type="video/mp4" />
 				</video>

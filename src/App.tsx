@@ -36,16 +36,18 @@ function App() {
 	}
 
 	function enterSongs() {
-		runTransition(`Loading ${currentSong.title}`, "down", () => {
-			setCurrentView("song");
-		});
+		setLoadingMessage(`Loading ${currentSong.title}`);
+		setTransitionDirection("down");
+		setIsLoading(true);
+		setCurrentView("song");
 	}
 
 	function selectSong(index: number) {
-		runTransition(`Loading ${songs[index].title}`, "down", () => {
-			setCurrentSongIndex(index);
-			setCurrentView("song");
-		});
+		setLoadingMessage(`Loading ${songs[index].title}`);
+		setTransitionDirection("down");
+		setIsLoading(true);
+		setCurrentSongIndex(index);
+		setCurrentView("song");
 	}
 
 	function returnHome() {
@@ -61,10 +63,11 @@ function App() {
 
 		const previousIndex = currentSongIndex - 1;
 
-		runTransition(`Loading ${songs[previousIndex].title}`, "left", () => {
-			setCurrentSongIndex(previousIndex);
-			setCurrentView("song");
-		});
+		setLoadingMessage(`Loading ${songs[previousIndex].title}`);
+		setTransitionDirection("left");
+		setIsLoading(true);
+		setCurrentSongIndex(previousIndex);
+		setCurrentView("song");
 	}
 
 	function goNextSong() {
@@ -74,10 +77,11 @@ function App() {
 
 		const nextIndex = currentSongIndex + 1;
 
-		runTransition(`Loading ${songs[nextIndex].title}`, "right", () => {
-			setCurrentSongIndex(nextIndex);
-			setCurrentView("song");
-		});
+		setLoadingMessage(`Loading ${songs[nextIndex].title}`);
+		setTransitionDirection("right");
+		setIsLoading(true);
+		setCurrentSongIndex(nextIndex);
+		setCurrentView("song");
 	}
 
 	function collectSecretLetter() {
@@ -101,6 +105,12 @@ function App() {
 		runTransition("Opening Hidden Dimension", "secret", () => {
 			setCurrentView("hidden");
 		});
+	}
+
+	function finishLoading() {
+		window.setTimeout(() => {
+			setIsLoading(false);
+		}, 350);
 	}
 
 	return (
@@ -132,6 +142,7 @@ function App() {
 					onNext={goNextSong}
 					onReturnHome={returnHome}
 					onCollectLetter={collectSecretLetter}
+					onStageReady={finishLoading}
 				/>
 			)}
 

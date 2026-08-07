@@ -12,6 +12,7 @@ type SongStageProps = {
 	onNext: () => void;
 	onReturnHome: () => void;
 	onCollectLetter: () => void;
+	onStageReady: () => void;
 };
 
 export function SongStage({
@@ -22,7 +23,8 @@ export function SongStage({
 	onPrevious,
 	onNext,
 	onReturnHome,
-	onCollectLetter
+	onCollectLetter,
+	onStageReady
 }: SongStageProps) {
 	const canGoPrevious = currentSongIndex > 0;
 	const canGoNext = currentSongIndex < totalSongs - 1;
@@ -37,7 +39,7 @@ export function SongStage({
 
 	return (
 		<section className={`song-stage app-screen song-stage--${song.theme}`} style={style}>
-			<SongVideoPlayer song={song} />
+			<SongVideoPlayer song={song} onReady={onStageReady} />
 			
 			<div className="song-stage-bg"></div>
 
