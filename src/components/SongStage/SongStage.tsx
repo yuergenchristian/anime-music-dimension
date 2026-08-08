@@ -39,11 +39,64 @@ export function SongStage({
 
 	return (
 		<section className={`song-stage app-screen song-stage--${song.theme}`} style={style}>
-			<SongVideoPlayer song={song} onReady={onStageReady} />
+			<div className="song-stage__video-layer">
+				<SongVideoPlayer song={song} onReady={onStageReady} />
+			</div>
 			
-			<div className="song-stage-bg"></div>
+			{/* <div className="song-stage-bg"></div> */}
 
-			<div className="song-stage-content">
+			<div className="song-stage__fx-layer">
+				<div className="song-stage__vignette" />
+				<div className="song-stage__gradient" />
+				<div className="song-stage__scanlines" />
+				<div className="song-stage__grid" />
+				<div className="song-stage__ring" />
+				<div className="song-stage__spark spark-1" />
+				<div className="song-stage__spark spark-2" />
+			</div>
+
+			<button className="song-stage__home-button" onClick={onReturnHome} aria-label="Return to homepage">
+				↑
+			</button>
+
+			{canGoPrevious && (
+				<button className="song-stage__nav song-stage__nav--left" onClick={onPrevious} disabled={!canGoPrevious} aria-label="Go to previous song">
+					&lt;
+				</button>
+			)}
+
+			{canGoNext && (
+				<button className="song-stage__nav song-stage__nav--right" onClick={onNext} disabled={!canGoNext} aria-label="Go to next song">
+					&gt;
+				</button>
+			)}
+
+			{!letterCollected && (
+				<button className="song-secret-letter" onClick={onCollectLetter} aria-label={`Collect secret letter ${song.ui.secretLetter}`}>
+					<span>{song.ui.secretLetter}</span>
+				</button>
+			)}
+
+			<div className="song-stage__content">
+				<aside className="song-stage__info-panel">
+					<div className="song-stage__panel-tag">{song.ui.label}</div>
+					<h1 className="song-stage__title">{song.title}</h1>
+					<h2 className="song-stage__artist">{song.artist}</h2>
+					<p className="song-stage__description">{song.mood}</p>
+
+					<div className="song-stage__meta-list">
+						<span>Mind Reading</span>
+						<span>Dendro Signal</span>
+						<span>Fantasy Scan</span>
+					</div>
+				</aside>
+
+				<div className="song-stage__hud-chip chip-1">TERMINAL LINK: ACTIVE</div>
+				<div className="song-stage__hud-chip chip-2">SUBJECT: NAHIDA</div>
+				<div className="song-stage__hud-chip chip-3">MODE: OBSERVATION</div>
+			</div>
+
+			{/* <div className="song-stage-content">
 				<div className="song-info-panel">
 					<p>{song.ui.label}</p>
 					<h1>{song.title}</h1>
@@ -69,7 +122,6 @@ export function SongStage({
 					&gt;
 				</button>
 
-				
 				<button
 					className="song-up-button"
 					onClick={onReturnHome}
@@ -87,7 +139,7 @@ export function SongStage({
 						<span>{song.ui.secretLetter}</span>
 					</button>
 				)}
-			</div>
+			</div> */}
 		</section>
 	);
 }
