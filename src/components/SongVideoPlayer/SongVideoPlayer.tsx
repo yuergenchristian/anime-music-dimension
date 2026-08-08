@@ -18,6 +18,7 @@ export function SongVideoPlayer({ song, onReady }: SongVideoPlayerProps) {
 	const [currentTime, setCurrentTime] = useState(0);
 	const [duration, setDuration] = useState(0);
 	const [volume, setVolume] = useState(0.75);
+	const [isBuffering, setIsBuffering] = useState(false);
 
 	useEffect(() => {
 		setIsReady(false);
@@ -161,6 +162,10 @@ export function SongVideoPlayer({ song, onReady }: SongVideoPlayerProps) {
 					onCanPlay={handleCanPlay}
 					onTimeUpdate={handleTimeUpdate}
 					onEnded={handleVideoEnded}
+					onWaiting={() => setIsBuffering(true)}
+					onPlaying={() => setIsBuffering(false)}
+					onSeeking={() => setIsBuffering(true)}
+					onSeeked={() => setIsBuffering(false)}
 					onError={() => {
 						setHasError(true);
 						onReady?.();
@@ -172,6 +177,12 @@ export function SongVideoPlayer({ song, onReady }: SongVideoPlayerProps) {
 				{!isReady && !hasError && (
 					<div className="song-video-loading">
 						<span>Loading video signal...</span>
+					</div>
+				)}
+
+				{isBuffering && isReady && !hasError && !isEnded && (
+					<div className="song-video-buffering">
+						<span>Buffering Signal...</span>
 					</div>
 				)}
 
