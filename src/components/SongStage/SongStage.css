@@ -27,6 +27,12 @@
 	padding: 48px;
 	display: flex;
 	align-items: center;
+	pointer-events: none;
+}
+
+.song-stage__info-panel,
+.song-stage__hud-chip {
+	pointer-events: auto;
 }
 
 .song-stage__vignette {
@@ -184,23 +190,6 @@
 	font-size: 12px;
 	font-weight: 700;
 	letter-spacing: 1px;
-}
-
-.song-video-player-shell,
-.song-player-panel {
-	position: absolute;
-	left: 50%;
-	bottom: 32px;
-	transform: translateX(-50%);
-	width: min(980px, calc(100% - 96px));
-	z-index: 6;
-	padding: 22px 28px;
-	border: 1px solid rgba(153, 210, 116, 0.18);
-	background: rgba(5, 10, 10, 0.72);
-	backdrop-filter: blur(18px);
-	box-shadow:
-		0 0 26px rgba(153, 210, 116, 0.1),
-		inset 0 0 24px rgba(255, 255, 255, 0.02);
 }
 
 .song-stage__hud-chip {
