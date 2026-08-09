@@ -23,6 +23,7 @@ export function SongVideoPlayer({ song, onReady }: SongVideoPlayerProps) {
 	useEffect(() => {
 		setIsReady(false);
 		setIsPlaying(false);
+		setIsBuffering(false);
 		setIsEnded(false);
 		setHasError(false);
 		setCurrentTime(0);
@@ -113,6 +114,7 @@ export function SongVideoPlayer({ song, onReady }: SongVideoPlayerProps) {
 
 	function handleCanPlay() {
 		setIsReady(true);
+		setIsBuffering(false);
 		setHasError(false);
 		onReady?.();
 	}
@@ -129,6 +131,7 @@ export function SongVideoPlayer({ song, onReady }: SongVideoPlayerProps) {
 
 	function handleVideoEnded() {
 		setIsPlaying(false);
+		setIsBuffering(false);
 		setIsEnded(true);
 	}
 
@@ -167,6 +170,7 @@ export function SongVideoPlayer({ song, onReady }: SongVideoPlayerProps) {
 					onSeeking={() => setIsBuffering(true)}
 					onSeeked={() => setIsBuffering(false)}
 					onError={() => {
+						setIsBuffering(false);
 						setHasError(true);
 						onReady?.();
 					}}
