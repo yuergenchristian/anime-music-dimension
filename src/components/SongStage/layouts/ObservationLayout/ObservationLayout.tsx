@@ -1,3 +1,4 @@
+import { type CSSProperties, useState } from "react";
 import type { Song } from "../../../../types/song";
 import "./ObservationLayout.css";
 
@@ -5,7 +6,26 @@ type ObservationLayoutProps = {
 	song: Song;
 };
 
+const characterImagePath = "/assets/songs/01-observation/01-character.png";
+
+const spectrumBarPattern = [28, 54, 38, 72, 48, 86, 62, 34, 78, 44, 92, 58];
+
+function scrollToSection(sectionId: string) {
+	const section = document.getElementById(sectionId);
+
+	if (!section) {
+		return;
+	}
+
+	section.scrollIntoView({
+		behavior: "smooth",
+		block: "start"
+	});
+}
+
 export function ObservationLayout({ song }: ObservationLayoutProps) {
+	const [characterImageFailed, setCharacterImageFailed] = useState(false);
+
 	return (
 		<div className="observation-layout">
 			<div className="observation-layout__fx">
@@ -18,50 +38,59 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 				<div className="observation-layout__spark observation-layout__spark--two" />
 			</div>
 
-			<div className="observation-layout__scroll">
-				<section className="observation-section observation-section--intro">
-					<aside className="observation-info-panel">
-						<div className="observation-info-panel__tag">{song.ui.label}</div>
-						<h1 className="observation-info-panel__title">{song.title}</h1>
-						<p className="observation-info-panel__subtitle">Observation</p>
-						<h2 className="observation-info-panel__artist">{song.artist}</h2>
-						<p className="observation-info-panel__description">{song.mood}</p>
+			<div className="observation-layout__section-nav" aria-label="Observation section navigation">
+				<button type="button" onClick={() => scrollToSection("observation-hero")}>Hero</button>
+				<button type="button" onClick={() => scrollToSection("observation-spectrum")}>Spectrum</button>
+				<button type="button" onClick={() => scrollToSection("observation-feature")}>Feature</button>
+				<button type="button" onClick={() => scrollToSection("observation-profile")}>Profile</button>
+			</div>
 
-						<div className="observation-info-panel__meta-list">
-							<span>Mind Reading</span>
-							<span>Dendro Signal</span>
-							<span>Fantasy Scan</span>
+			<main className="observation-layout__scroll">
+				<section id="observation-hero" className="observation-section observation-section--hero">
+					<div className="observation-hero__content">
+						<aside className="observation-info-panel">
+							<div className="observation-info-panel__tag">{song.ui.label}</div>
+							<h1 className="observation-info-panel__title">{song.title}</h1>
+							<p className="observation-info-panel__subtitle">Observation</p>
+							<h2 className="observation-info-panel__artist">{song.artist}</h2>
+							<p className="observation-info-panel__description">{song.mood}</p>
+
+							<div className="observation-info-panel__meta-list">
+								<span>Mind Reading</span>
+								<span>Dendro Signal</span>
+								<span>Fantasy Scan</span>
+							</div>
+						</aside>
+
+						<div className="observation-hero__quote-panel">
+							<p>Character Signal</p>
+							<span>
+								A soft dream waits inside the signal. Observe first, then understand.
+							</span>
 						</div>
-					</aside>
+					</div>
+
+					<div className="observation-hero__character" aria-label="Nahida character visual">
+						{!characterImageFailed ? (
+							<img
+								src={characterImagePath}
+								alt="Nahida character artwork"
+								onError={() => setCharacterImageFailed(true)}
+							/>
+						) : (
+							<div className="observation-hero__character-placeholder">
+								<span>N</span>
+								<p>Add 01-character.png</p>
+							</div>
+						)}
+					</div>
 
 					<div className="observation-hud observation-hud--one">Terminal Link: Active</div>
 					<div className="observation-hud observation-hud--two">Subject: Nahida</div>
 					<div className="observation-hud observation-hud--three">Mode: Observation</div>
 				</section>
 
-				<section className="observation-section observation-section--character">
-					<div className="observation-character-card">
-						<div className="observation-character-card__portrait">
-							<span>N</span>
-						</div>
-
-						<div className="observation-character-card__content">
-							<p>Character Signal</p>
-							<h2>Nahida</h2>
-							<span>Lesser Lord Kusanali - soft wisdom, hidden power, and playful observation.</span>
-						</div>
-					</div>
-
-					<div className="observation-bio-panel">
-						<p>Bio Description</p>
-						<h3>Mind Reader of the Stage</h3>
-						<span>
-							This zone is reserved for the future character PNG, name tag, and longer character story. The video stays alive behind it while this foreground panel moves.
-						</span>
-					</div>
-				</section>
-
-				<section className="observation-section observation-section--spectrum">
+				<section id="observation-spectrum" className="observation-section observation-section--spectrum">
 					<div className="observation-spectrum-card">
 						<div className="observation-spectrum-card__header">
 							<p>Audio Spectrum</p>
@@ -69,34 +98,58 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 						</div>
 
 						<div className="observation-spectrum-card__bars" aria-hidden="true">
-							{Array.from({ length: 36 }, (_, index) => (
-								<span key={index} style={{ "--bar-index": index } as React.CSSProperties} />
-							))}
+							{Array.from({ length: 44 }, (_, index) => {
+								const barHeight = spectrumBarPattern[index % spectrumBarPattern.length];
+
+								const style = {
+									"--bar-height": `${barHeight}%`,
+									"--bar-delay": `${index * -0.055}s`
+								} as CSSProperties;
+
+								return <span key={index} style={style} />;
+							})}
 						</div>
 
 						<span className="observation-spectrum-card__note">
-							Placeholder for now. Later this will become a real Web Audio API waveform synced to the video music.
+							Placeholder for now. Later this becomes a real Web Audio API spectrum synced to the video music.
 						</span>
 					</div>
 				</section>
 
-				<section className="observation-section observation-section--trait">
-					<div className="observation-trait-card">
-						<p>Unique Trait</p>
+				<section id="observation-feature" className="observation-section observation-section--feature">
+					<div className="observation-feature-card">
+						<p>Unique Feature</p>
 						<h2>Observation Scan</h2>
 						<span>
-							A future interactive scan feature can live here: mind-reading UI, target lock, floating memory fragments, dendro symbols, or special scene notes.
+							A future interactive special skill can live here: mind-reading UI, target lock, floating memory fragments, dendro symbols, or special scene notes.
 						</span>
 
-						<div className="observation-trait-card__matrix">
-							<span>SCAN 01</span>
-							<span>DENDRO TRACE</span>
-							<span>MEMORY LOCK</span>
-							<span>KABOOM MARKER</span>
+						<div className="observation-feature-card__matrix">
+							<span>Scan 01</span>
+							<span>Dendro Trace</span>
+							<span>Memory Lock</span>
+							<span>KABOOM Marker</span>
 						</div>
 					</div>
 				</section>
-			</div>
+
+				<section id="observation-profile" className="observation-section observation-section--profile">
+					<div className="observation-profile-card">
+						<p>Character Profile</p>
+						<h2>Nahida</h2>
+						<span>
+							This section is reserved for the full character bio, name tag, quote, personality notes, and song-specific story connection.
+						</span>
+
+						<div className="observation-profile-card__tags">
+							<span>Soft Wisdom</span>
+							<span>Hidden Power</span>
+							<span>Dream Signal</span>
+							<span>Dendro Mind</span>
+						</div>
+					</div>
+				</section>
+			</main>
 		</div>
 	);
 }

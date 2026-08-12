@@ -1,7 +1,6 @@
 .song-video-player {
 	position: absolute;
 	inset: 0;
-	z-index: 1;
 	pointer-events: none;
 }
 
@@ -109,7 +108,7 @@
 	position: fixed;
 	left: 50%;
 	bottom: 28px;
-	z-index: 20;
+	z-index: 80;
 	width: min(780px, calc(100vw - 40px));
 	padding: 18px;
 	border: 1px solid color-mix(in srgb, var(--song-primary) 42%, transparent);
@@ -169,10 +168,10 @@
 }
 
 .song-video-buffering {
-	position: absolute;
+	position: fixed;
 	right: 28px;
 	bottom: 168px;
-	z-index: 4;
+	z-index: 70;
 	padding: 12px 16px;
 	border: 1px solid color-mix(in srgb, var(--song-primary) 52%, transparent);
 	color: var(--song-accent);
