@@ -157,21 +157,23 @@
 .observation-section {
 	position: relative;
 	min-height: 100vh;
-	padding: 120px 120px 230px;
+	padding: 120px 120px 260px;
 	display: flex;
 	align-items: center;
 	scroll-snap-align: start;
 }
 
 .observation-section--hero {
-	min-height: 142vh;
+	min-height: 138vh;
 	justify-content: flex-start;
+	padding-bottom: 340px;
 }
 
 .observation-hero__content {
 	position: relative;
 	z-index: 4;
-	width: min(720px, 48vw);
+	width: min(640px, 46vw);
+	margin-left: 12px;
 	display: grid;
 	gap: 22px;
 	animation: observationPanelEnter 0.8s ease both;
@@ -192,7 +194,7 @@
 }
 
 .observation-info-panel {
-	width: min(500px, 42vw);
+	width: min(500px, 40vw);
 	padding: 32px;
 }
 
@@ -256,8 +258,11 @@
 }
 
 .observation-hero__quote-panel {
-	width: min(460px, 38vw);
-	margin-left: 80px;
+	position: absolute;
+	left: min(560px, 42vw);
+	top: 62vh;
+	width: min(420px, 32vw);
+	margin-left: 0;
 	padding: 22px 26px;
 }
 
@@ -278,11 +283,11 @@
 
 .observation-hero__character {
 	position: absolute;
-	top: 64px;
-	right: 1vw;
+	top: 58px;
+	right: 3vw;
 	z-index: 3;
-	width: min(46vw, 720px);
-	height: 132vh;
+	width: min(42vw, 680px);
+	height: 126vh;
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
@@ -349,18 +354,18 @@
 }
 
 .observation-hud--one {
-	top: 16%;
-	right: 16%;
+	top: 15%;
+	right: 8%;
 }
 
 .observation-hud--two {
-	top: 24%;
-	right: 11%;
+	top: 25%;
+	right: 4%;
 }
 
 .observation-hud--three {
-	top: 58%;
-	right: 15%;
+	top: 59%;
+	right: 10%;
 }
 
 .observation-section--spectrum,

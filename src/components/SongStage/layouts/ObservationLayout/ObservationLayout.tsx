@@ -6,8 +6,6 @@ type ObservationLayoutProps = {
 	song: Song;
 };
 
-const characterImagePath = "/assets/songs/01-observation/01-character.png";
-
 const spectrumBarPattern = [28, 54, 38, 72, 48, 86, 62, 34, 78, 44, 92, 58];
 
 function scrollToSection(sectionId: string) {
@@ -73,14 +71,14 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 					<div className="observation-hero__character" aria-label="Nahida character visual">
 						{!characterImageFailed ? (
 							<img
-								src={characterImagePath}
-								alt="Nahida character artwork"
+								src={song.assets.character}
+								alt={`${song.title} character artwork`}
 								onError={() => setCharacterImageFailed(true)}
 							/>
 						) : (
 							<div className="observation-hero__character-placeholder">
 								<span>N</span>
-								<p>Add 01-character.png</p>
+								<p>Add character PNG</p>
 							</div>
 						)}
 					</div>

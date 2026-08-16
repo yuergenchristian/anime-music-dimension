@@ -23,6 +23,7 @@ export type SongAssets = {
 	video: string;
 	audio: string;
 	cover: string;
+	character: string;
 };
 
 export type SongUI = {

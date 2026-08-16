@@ -26,7 +26,8 @@ export const songs: Song[] = [
 		assets: {
 			video: "/assets/songs/01-observation/01-video.mp4",
 			audio: "/assets/songs/01-observation/01-audio.mp3",
-			cover: "/assets/songs/01-observation/01-cover.jpg"
+			cover: "/assets/songs/01-observation/01-cover.jpg",
+			character: "/assets/songs/01-observation/01-character.png"
 		},
 		ui: {
 			label: "Observation Mode",
@@ -56,7 +57,8 @@ export const songs: Song[] = [
 		assets: {
 			video: "/assets/songs/02-resting/02-video.mp4",
 			audio: "/assets/songs/02-resting/02-audio.mp3",
-			cover: "/assets/songs/02-resting/02-cover.jpg"
+			cover: "/assets/songs/02-resting/02-cover.jpg",
+			character: "/assets/songs/02-observation/02-character.png"
 		},
 		ui: {
 			label: "Rest Mode",
@@ -86,7 +88,8 @@ export const songs: Song[] = [
 		assets: {
 			video: "/assets/songs/03-nostalgia/03-video.mp4",
 			audio: "/assets/songs/03-nostalgia/03-audio.mp3",
-			cover: "/assets/songs/03-nostalgia/03-cover.jpg"
+			cover: "/assets/songs/03-nostalgia/03-cover.jpg",
+			character: "/assets/songs/03-observation/03-character.png"
 		},
 		ui: {
 			label: "Festival Memory",
@@ -116,7 +119,8 @@ export const songs: Song[] = [
 		assets: {
 			video: "/assets/songs/04-otona/04-video.mp4",
 			audio: "/assets/songs/04-otona/04-audio.mp3",
-			cover: "/assets/songs/04-otona/04-cover.jpg"
+			cover: "/assets/songs/04-otona/04-cover.jpg",
+			character: "/assets/songs/04-observation/04-character.png"
 		},
 		ui: {
 			label: "Ghost Business",
@@ -146,7 +150,8 @@ export const songs: Song[] = [
 		assets: {
 			video: "/assets/songs/05-friendship/05-video.mp4",
 			audio: "/assets/songs/05-friendship/05-audio.mp3",
-			cover: "/assets/songs/05-friendship/05-cover.jpg"
+			cover: "/assets/songs/05-friendship/05-cover.jpg",
+			character: "/assets/songs/05-observation/05-character.png"
 		},
 		ui: {
 			label: "Cat Lounge",
@@ -176,7 +181,8 @@ export const songs: Song[] = [
 		assets: {
 			video: "/assets/songs/06-pets/06-video.mp4",
 			audio: "/assets/songs/06-pets/06-audio.mp3",
-			cover: "/assets/songs/06-pets/06-cover.jpg"
+			cover: "/assets/songs/06-pets/06-cover.jpg",
+			character: "/assets/songs/06-observation/06-character.png"
 		},
 		ui: {
 			label: "Pet Journal",
@@ -206,7 +212,8 @@ export const songs: Song[] = [
 		assets: {
 			video: "/assets/songs/07-kokoroe/07-video.mp4",
 			audio: "/assets/songs/07-kokoroe/07-audio.mp3",
-			cover: "/assets/songs/07-kokoroe/07-cover.jpg"
+			cover: "/assets/songs/07-kokoroe/07-cover.jpg",
+			character: "/assets/songs/07-observation/07-character.png"
 		},
 		ui: {
 			label: "Spark Knight Log",
