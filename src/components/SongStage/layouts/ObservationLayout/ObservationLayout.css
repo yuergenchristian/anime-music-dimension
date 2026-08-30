@@ -103,26 +103,6 @@
 	opacity: 0.42;
 }
 
-.observation-layout__spark {
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	background: #99d274;
-	box-shadow: 0 0 18px #99d274, 0 0 40px #99d274;
-	opacity: 0.7;
-}
-
-.observation-layout__spark--one {
-	top: 22%;
-	right: 23%;
-}
-
-.observation-layout__spark--two {
-	top: 52%;
-	right: 33%;
-}
-
 .observation-layout__section-nav {
 	position: fixed;
 	left: 24px;
@@ -183,8 +163,7 @@
 .observation-hero__quote-panel,
 .observation-spectrum-card,
 .observation-feature-card,
-.observation-profile-card,
-.observation-hud {
+.observation-profile-card {
 	border: 1px solid rgba(153, 210, 116, 0.22);
 	background: rgba(8, 14, 15, 0.62);
 	backdrop-filter: blur(10px);
@@ -341,31 +320,59 @@
 	text-transform: uppercase;
 }
 
-.observation-hud {
+.observation-scan-markers {
 	position: fixed;
+	inset: 0;
 	z-index: 6;
+	pointer-events: none;
+}
+
+.observation-scan-marker {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.observation-scan-marker__dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #99d274;
+	box-shadow:
+		0 0 14px rgba(153, 210, 116, 0.7),
+		0 0 34px rgba(153, 210, 116, 0.28);
+	animation: observationDotPulse 1.8s ease-in-out infinite;
+}
+
+.observation-scan-marker__label {
 	padding: 10px 14px;
+	border: 1px solid rgba(153, 210, 116, 0.22);
+	background: rgba(8, 14, 15, 0.72);
 	color: #d6f7a2;
 	font-size: 11px;
 	font-weight: 800;
 	letter-spacing: 2px;
 	text-transform: uppercase;
-	pointer-events: none;
+	backdrop-filter: blur(10px);
+	box-shadow:
+		0 0 24px rgba(153, 210, 116, 0.1),
+		inset 0 0 24px rgba(255, 255, 255, 0.02);
 }
 
-.observation-hud--one {
-	top: 15%;
+.observation-scan-marker--terminal {
+	top: 16%;
 	right: 8%;
 }
 
-.observation-hud--two {
+.observation-scan-marker--subject {
 	top: 25%;
 	right: 4%;
 }
 
-.observation-hud--three {
-	top: 59%;
-	right: 10%;
+.observation-scan-marker--mode {
+	top: 58%;
+	right: 12%;
 }
 
 .observation-section--spectrum,
@@ -511,6 +518,19 @@
 	}
 }
 
+@keyframes observationDotPulse {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 0.72;
+	}
+
+	50% {
+		transform: scale(1.32);
+		opacity: 1;
+	}
+}
+
 @media (max-width: 1100px) {
 	.observation-layout__section-nav {
 		display: none;
@@ -547,10 +567,6 @@
 		height: 92vh;
 		transform: translateX(50%);
 		opacity: 0.65;
-	}
-
-	.observation-hud {
-		display: none;
 	}
 
 	.observation-layout__ring {

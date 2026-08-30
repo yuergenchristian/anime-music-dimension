@@ -32,8 +32,6 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 				<div className="observation-layout__scanlines" />
 				<div className="observation-layout__grid" />
 				<div className="observation-layout__ring" />
-				<div className="observation-layout__spark observation-layout__spark--one" />
-				<div className="observation-layout__spark observation-layout__spark--two" />
 			</div>
 
 			<div className="observation-layout__section-nav" aria-label="Observation section navigation">
@@ -41,6 +39,23 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 				<button type="button" onClick={() => scrollToSection("observation-spectrum")}>Spectrum</button>
 				<button type="button" onClick={() => scrollToSection("observation-feature")}>Feature</button>
 				<button type="button" onClick={() => scrollToSection("observation-profile")}>Profile</button>
+			</div>
+
+			<div className="observation-scan-markers" aria-hidden="true">
+				<div className="observation-scan-marker observation-scan-marker--terminal">
+					<span className="observation-scan-marker__dot" />
+					<span className="observation-scan-marker__label">Terminal Link: Active</span>
+				</div>
+				
+				<div className="observation-scan-marker observation-scan-marker--subject">
+					<span className="observation-scan-marker__dot" />
+					<span className="observation-scan-marker__label">Subject: Nahida</span>
+				</div>
+
+				<div className="observation-scan-marker observation-scan-marker--mode">
+					<span className="observation-scan-marker__dot" />
+					<span className="observation-scan-marker__label">Mode: Observation</span>
+				</div>
 			</div>
 
 			<main className="observation-layout__scroll">
@@ -82,10 +97,6 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 							</div>
 						)}
 					</div>
-
-					<div className="observation-hud observation-hud--one">Terminal Link: Active</div>
-					<div className="observation-hud observation-hud--two">Subject: Nahida</div>
-					<div className="observation-hud observation-hud--three">Mode: Observation</div>
 				</section>
 
 				<section id="observation-spectrum" className="observation-section observation-section--spectrum">
