@@ -274,52 +274,6 @@
 	animation: observationCharacterEnter 1s 0.12s ease both;
 }
 
-.observation-hero__character img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	object-position: top right;
-	filter:
-		drop-shadow(0 0 20px rgba(153, 210, 116, 0.22))
-		drop-shadow(0 32px 50px rgba(0, 0, 0, 0.36));
-}
-
-.observation-hero__character-placeholder {
-	width: min(420px, 38vw);
-	height: 680px;
-	display: grid;
-	place-items: center;
-	align-content: center;
-	gap: 18px;
-	border: 1px solid rgba(153, 210, 116, 0.2);
-	background:
-		radial-gradient(circle at center, rgba(153, 210, 116, 0.18), transparent 58%),
-		rgba(8, 14, 15, 0.34);
-	backdrop-filter: blur(6px);
-}
-
-.observation-hero__character-placeholder span {
-	width: 180px;
-	height: 180px;
-	display: grid;
-	place-items: center;
-	border-radius: 50%;
-	background: rgba(153, 210, 116, 0.88);
-	color: #10210a;
-	font-size: 92px;
-	font-weight: 1000;
-	box-shadow: 0 0 40px rgba(153, 210, 116, 0.35);
-}
-
-.observation-hero__character-placeholder p {
-	margin: 0;
-	color: #d6f7a2;
-	font-size: 12px;
-	font-weight: 900;
-	letter-spacing: 3px;
-	text-transform: uppercase;
-}
-
 .observation-scan-markers {
 	position: fixed;
 	inset: 0;

@@ -1,5 +1,6 @@
-import { type CSSProperties, useState } from "react";
+import type { CSSProperties } from "react";
 import type { Song } from "../../../../types/song";
+import { CharacterHero } from "../../shared/CharacterHero/CharacterHero";
 import "./ObservationLayout.css";
 
 type ObservationLayoutProps = {
@@ -22,7 +23,6 @@ function scrollToSection(sectionId: string) {
 }
 
 export function ObservationLayout({ song }: ObservationLayoutProps) {
-	const [characterImageFailed, setCharacterImageFailed] = useState(false);
 
 	return (
 		<div className="observation-layout">
@@ -83,20 +83,13 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 						</div>
 					</div>
 
-					<div className="observation-hero__character" aria-label="Nahida character visual">
-						{!characterImageFailed ? (
-							<img
-								src={song.assets.character}
-								alt={`${song.title} character artwork`}
-								onError={() => setCharacterImageFailed(true)}
-							/>
-						) : (
-							<div className="observation-hero__character-placeholder">
-								<span>N</span>
-								<p>Add character PNG</p>
-							</div>
-						)}
-					</div>
+					
+					<CharacterHero
+						song={song}
+						characterName="Nahida"
+						fallbackInitial="N"
+						className="observation-hero__character"
+					/>
 				</section>
 
 				<section id="observation-spectrum" className="observation-section observation-section--spectrum">
