@@ -3,6 +3,7 @@ import type { Song } from "../../types/song";
 import { SongVideoPlayer } from "../SongVideoPlayer/SongVideoPlayer";
 import { ObservationLayout } from "./layouts/ObservationLayout/ObservationLayout";
 import { RestingLayout } from "./layouts/RestingLayout/RestingLayout";
+import { ThemedSongLayout } from "./layouts/ThemedSongLayout/ThemedSongLayout";
 import "./SongStage.css";
 
 type SongStageProps = {
@@ -43,12 +44,19 @@ export function SongStage({
 		switch (song.theme) {
 			case "dendro-observation":
 				return <ObservationLayout song={song} />;
-		
+
 			case "cryo-resting":
 				return <RestingLayout song={song} />;
-		
+
+			case "festival-nostalgia":
+			case "ghost-carnival":
+			case "cat-lounge":
+			case "memory-pet":
+			case "spark-knight-adventure":
+				return <ThemedSongLayout song={song} />;
+
 			default:
-				return <ObservationLayout song={song} />;
+				return <ThemedSongLayout song={song} />;
 		}
 	}
 

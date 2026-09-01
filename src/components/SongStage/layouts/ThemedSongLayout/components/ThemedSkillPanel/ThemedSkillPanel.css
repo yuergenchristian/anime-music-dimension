@@ -1,0 +1,187 @@
+.themed-skill-panel {
+	width: min(980px, calc(100vw - 260px));
+	padding: 36px;
+	border: 1px solid color-mix(in srgb, var(--song-primary) 28%, transparent);
+	background: color-mix(in srgb, var(--song-dark) 76%, transparent);
+	backdrop-filter: blur(10px);
+	box-shadow:
+		0 0 28px color-mix(in srgb, var(--song-primary) 16%, transparent),
+		inset 0 0 24px rgba(255, 255, 255, 0.03);
+}
+
+.themed-skill-panel__header {
+	margin-bottom: 28px;
+}
+
+.themed-skill-panel__header p,
+.themed-skill-panel__details p {
+	margin: 0 0 8px;
+	color: var(--song-accent);
+	font-size: 12px;
+	font-weight: 900;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+
+.themed-skill-panel__header h2 {
+	margin: 0 0 14px;
+	color: #f7fbff;
+	font-size: clamp(42px, 5vw, 82px);
+	line-height: 1;
+}
+
+.themed-skill-panel__header span,
+.themed-skill-panel__details span {
+	display: block;
+	max-width: 82ch;
+	color: rgba(255, 255, 255, 0.78);
+	font-size: 16px;
+	line-height: 1.7;
+}
+
+.themed-skill-panel__body {
+	display: grid;
+	grid-template-columns: 260px minmax(0, 1fr);
+	gap: 24px;
+}
+
+.themed-skill-panel__mode-list {
+	display: grid;
+	gap: 12px;
+	align-content: start;
+}
+
+.themed-skill-panel__mode-list button {
+	padding: 16px;
+	display: grid;
+	gap: 6px;
+	border: 1px solid color-mix(in srgb, var(--song-primary) 22%, transparent);
+	background: color-mix(in srgb, var(--song-primary) 8%, transparent);
+	color: var(--song-accent);
+	text-align: left;
+	cursor: pointer;
+	transition: 0.2s ease;
+}
+
+.themed-skill-panel__mode-list button:hover,
+.themed-skill-panel__mode-list button.is-active {
+	background: color-mix(in srgb, var(--song-primary) 18%, transparent);
+	box-shadow: 0 0 24px color-mix(in srgb, var(--song-primary) 22%, transparent);
+}
+
+.themed-skill-panel__mode-list button span {
+	color: rgba(255, 255, 255, 0.62);
+	font-size: 11px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.themed-skill-panel__mode-list button strong {
+	font-size: 16px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.themed-skill-panel__display {
+	min-height: 360px;
+	padding: 28px;
+	display: grid;
+	grid-template-columns: 260px minmax(0, 1fr);
+	gap: 28px;
+	align-items: center;
+	border: 1px solid color-mix(in srgb, var(--song-primary) 18%, transparent);
+	background:
+		radial-gradient(circle at 28% 50%, color-mix(in srgb, var(--song-primary) 18%, transparent), transparent 32%),
+		linear-gradient(color-mix(in srgb, var(--song-primary) 7%, transparent) 1px, transparent 1px),
+		rgba(0, 0, 0, 0.2);
+	background-size: auto, 100% 32px, auto;
+	overflow: hidden;
+}
+
+.themed-skill-panel__core {
+	position: relative;
+	width: 220px;
+	height: 220px;
+	display: grid;
+	place-items: center;
+	border: 1px solid color-mix(in srgb, var(--song-primary) 32%, transparent);
+	border-radius: 50%;
+	box-shadow:
+		0 0 30px color-mix(in srgb, var(--song-primary) 18%, transparent),
+		inset 0 0 34px color-mix(in srgb, var(--song-primary) 10%, transparent);
+	animation: themedSkillPulse 2.6s ease-in-out infinite;
+}
+
+.themed-skill-panel__core::before,
+.themed-skill-panel__core::after {
+	content: "";
+	position: absolute;
+	border-radius: 50%;
+	border: 1px dashed color-mix(in srgb, var(--song-primary) 26%, transparent);
+}
+
+.themed-skill-panel__core::before {
+	inset: 28px;
+}
+
+.themed-skill-panel__core::after {
+	inset: 62px;
+	border-style: solid;
+}
+
+.themed-skill-panel__core span {
+	color: var(--song-accent);
+	font-size: 48px;
+	font-weight: 1000;
+	text-shadow: 0 0 20px color-mix(in srgb, var(--song-primary) 38%, transparent);
+}
+
+.themed-skill-panel__details h3 {
+	margin: 0 0 16px;
+	color: #f7fbff;
+	font-size: clamp(34px, 4vw, 64px);
+	line-height: 1;
+}
+
+.themed-skill-panel__meter {
+	margin-top: 26px;
+	height: 12px;
+	border: 1px solid color-mix(in srgb, var(--song-primary) 24%, transparent);
+	background: rgba(255, 255, 255, 0.08);
+	overflow: hidden;
+}
+
+.themed-skill-panel__meter div {
+	height: 100%;
+	background: linear-gradient(90deg, var(--song-primary), var(--song-secondary));
+	box-shadow: 0 0 20px color-mix(in srgb, var(--song-primary) 38%, transparent);
+	transition: width 0.28s ease;
+}
+
+@keyframes themedSkillPulse {
+	0%,
+	100% {
+		transform: translateY(0) scale(1);
+	}
+
+	50% {
+		transform: translateY(-8px) scale(1.03);
+	}
+}
+
+@media (max-width: 1100px) {
+	.themed-skill-panel {
+		width: 100%;
+	}
+
+	.themed-skill-panel__body,
+	.themed-skill-panel__display {
+		grid-template-columns: 1fr;
+	}
+
+	.themed-skill-panel__core {
+		width: 180px;
+		height: 180px;
+	}
+}
