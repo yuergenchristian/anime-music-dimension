@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import type { Song } from "../../types/song";
 import { SongVideoPlayer } from "../SongVideoPlayer/SongVideoPlayer";
 import { ObservationLayout } from "./layouts/ObservationLayout/ObservationLayout";
+import { RestingLayout } from "./layouts/RestingLayout/RestingLayout";
 import "./SongStage.css";
 
 type SongStageProps = {
@@ -42,7 +43,10 @@ export function SongStage({
 		switch (song.theme) {
 			case "dendro-observation":
 				return <ObservationLayout song={song} />;
-
+		
+			case "cryo-resting":
+				return <RestingLayout song={song} />;
+		
 			default:
 				return <ObservationLayout song={song} />;
 		}
