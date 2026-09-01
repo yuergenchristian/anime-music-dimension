@@ -1,0 +1,119 @@
+.observation-scan-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 6;
+	pointer-events: none;
+}
+
+.observation-scan-overlay__ring {
+	position: absolute;
+	top: 16%;
+	right: 10%;
+	width: 460px;
+	height: 460px;
+	border: 1px solid rgba(153, 210, 116, 0.22);
+	border-radius: 50%;
+	box-shadow:
+		0 0 30px rgba(153, 210, 116, 0.12),
+		inset 0 0 40px rgba(153, 210, 116, 0.06);
+	animation: observationScanRingFloat 7s ease-in-out infinite;
+}
+
+.observation-scan-overlay__ring::before,
+.observation-scan-overlay__ring::after {
+	content: "";
+	position: absolute;
+	inset: 24px;
+	border: 1px dashed rgba(153, 210, 116, 0.22);
+	border-radius: 50%;
+}
+
+.observation-scan-overlay__ring::after {
+	inset: 78px;
+	border-style: solid;
+	opacity: 0.42;
+}
+
+.observation-scan-marker {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.observation-scan-marker__dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #99d274;
+	box-shadow:
+		0 0 14px rgba(153, 210, 116, 0.7),
+		0 0 34px rgba(153, 210, 116, 0.28);
+	animation: observationScanDotPulse 1.8s ease-in-out infinite;
+}
+
+.observation-scan-marker__label {
+	padding: 10px 14px;
+	border: 1px solid rgba(153, 210, 116, 0.22);
+	background: rgba(8, 14, 15, 0.72);
+	color: #d6f7a2;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	backdrop-filter: blur(10px);
+	box-shadow:
+		0 0 24px rgba(153, 210, 116, 0.1),
+		inset 0 0 24px rgba(255, 255, 255, 0.02);
+}
+
+.observation-scan-marker--terminal {
+	top: 16%;
+	right: 8%;
+}
+
+.observation-scan-marker--subject {
+	top: 25%;
+	right: 4%;
+}
+
+.observation-scan-marker--mode {
+	top: 58%;
+	right: 12%;
+}
+
+@keyframes observationScanDotPulse {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 0.72;
+	}
+
+	50% {
+		transform: scale(1.32);
+		opacity: 1;
+	}
+}
+
+@keyframes observationScanRingFloat {
+	0%,
+	100% {
+		transform: translateY(0) scale(1);
+	}
+
+	50% {
+		transform: translateY(18px) scale(1.03);
+	}
+}
+
+@media (max-width: 1100px) {
+	.observation-scan-marker {
+		display: none;
+	}
+
+	.observation-scan-overlay__ring {
+		right: -120px;
+		width: 320px;
+		height: 320px;
+	}
+}

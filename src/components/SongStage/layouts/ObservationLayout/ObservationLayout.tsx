@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react";
 import type { Song } from "../../../../types/song";
 import { CharacterHero } from "../../shared/CharacterHero/CharacterHero";
+import { ObservationScanOverlay } from "./components/ObservationScanOverlay/ObservationScanOverlay";
+import { ObservationSkillPanel } from "./components/ObservationSkillPanel/ObservationSkillPanel";
 import "./ObservationLayout.css";
 
 type ObservationLayoutProps = {
@@ -23,7 +25,6 @@ function scrollToSection(sectionId: string) {
 }
 
 export function ObservationLayout({ song }: ObservationLayoutProps) {
-
 	return (
 		<div className="observation-layout">
 			<div className="observation-layout__fx">
@@ -31,31 +32,15 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 				<div className="observation-layout__gradient" />
 				<div className="observation-layout__scanlines" />
 				<div className="observation-layout__grid" />
-				<div className="observation-layout__ring" />
 			</div>
+
+			<ObservationScanOverlay />
 
 			<div className="observation-layout__section-nav" aria-label="Observation section navigation">
 				<button type="button" onClick={() => scrollToSection("observation-hero")}>Hero</button>
 				<button type="button" onClick={() => scrollToSection("observation-spectrum")}>Spectrum</button>
 				<button type="button" onClick={() => scrollToSection("observation-feature")}>Feature</button>
 				<button type="button" onClick={() => scrollToSection("observation-profile")}>Profile</button>
-			</div>
-
-			<div className="observation-scan-markers" aria-hidden="true">
-				<div className="observation-scan-marker observation-scan-marker--terminal">
-					<span className="observation-scan-marker__dot" />
-					<span className="observation-scan-marker__label">Terminal Link: Active</span>
-				</div>
-				
-				<div className="observation-scan-marker observation-scan-marker--subject">
-					<span className="observation-scan-marker__dot" />
-					<span className="observation-scan-marker__label">Subject: Nahida</span>
-				</div>
-
-				<div className="observation-scan-marker observation-scan-marker--mode">
-					<span className="observation-scan-marker__dot" />
-					<span className="observation-scan-marker__label">Mode: Observation</span>
-				</div>
 			</div>
 
 			<main className="observation-layout__scroll">
@@ -76,14 +61,13 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 						</aside>
 
 						<div className="observation-hero__quote-panel">
-							<p>Character Signal</p>
+							<p>Observation Brief</p>
 							<span>
 								A soft dream waits inside the signal. Observe first, then understand.
 							</span>
 						</div>
 					</div>
 
-					
 					<CharacterHero
 						song={song}
 						characterName="Nahida"
@@ -119,20 +103,7 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 				</section>
 
 				<section id="observation-feature" className="observation-section observation-section--feature">
-					<div className="observation-feature-card">
-						<p>Unique Feature</p>
-						<h2>Observation Scan</h2>
-						<span>
-							A future interactive special skill can live here: mind-reading UI, target lock, floating memory fragments, dendro symbols, or special scene notes.
-						</span>
-
-						<div className="observation-feature-card__matrix">
-							<span>Scan 01</span>
-							<span>Dendro Trace</span>
-							<span>Memory Lock</span>
-							<span>KABOOM Marker</span>
-						</div>
-					</div>
+					<ObservationSkillPanel />
 				</section>
 
 				<section id="observation-profile" className="observation-section observation-section--profile">

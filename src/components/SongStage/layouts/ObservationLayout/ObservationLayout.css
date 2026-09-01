@@ -74,35 +74,6 @@
 	mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.78), transparent 78%);
 }
 
-.observation-layout__ring {
-	position: absolute;
-	top: 16%;
-	right: 10%;
-	width: 460px;
-	height: 460px;
-	border: 1px solid rgba(153, 210, 116, 0.22);
-	border-radius: 50%;
-	box-shadow:
-		0 0 30px rgba(153, 210, 116, 0.12),
-		inset 0 0 40px rgba(153, 210, 116, 0.06);
-	animation: observationRingFloat 7s ease-in-out infinite;
-}
-
-.observation-layout__ring::before,
-.observation-layout__ring::after {
-	content: "";
-	position: absolute;
-	inset: 24px;
-	border: 1px dashed rgba(153, 210, 116, 0.22);
-	border-radius: 50%;
-}
-
-.observation-layout__ring::after {
-	inset: 78px;
-	border-style: solid;
-	opacity: 0.42;
-}
-
 .observation-layout__section-nav {
 	position: fixed;
 	left: 24px;
@@ -446,17 +417,6 @@
 	to {
 		opacity: 1;
 		transform: translateX(0) scale(1);
-	}
-}
-
-@keyframes observationRingFloat {
-	0%,
-	100% {
-		transform: translateY(0) scale(1);
-	}
-
-	50% {
-		transform: translateY(18px) scale(1.03);
 	}
 }
 
