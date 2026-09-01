@@ -245,6 +245,35 @@
 	animation: observationCharacterEnter 1s 0.12s ease both;
 }
 
+.observation-scroll-hint {
+	position: absolute;
+	left: 50%;
+	bottom: 170px;
+	z-index: 8;
+	display: grid;
+	place-items: center;
+	gap: 6px;
+	color: #d6f7a2;
+	font-size: 11px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	transform: translateX(-50%);
+	pointer-events: none;
+	animation: observationScrollHintFloat 1.8s ease-in-out infinite;
+}
+
+.observation-scroll-hint strong {
+	width: 34px;
+	height: 34px;
+	display: grid;
+	place-items: center;
+	border: 1px solid rgba(153, 210, 116, 0.28);
+	border-radius: 999px;
+	background: rgba(8, 14, 15, 0.62);
+	box-shadow: 0 0 20px rgba(153, 210, 116, 0.18);
+}
+
 .observation-scan-markers {
 	position: fixed;
 	inset: 0;
@@ -396,6 +425,65 @@
 	text-transform: uppercase;
 }
 
+.observation-profile-card__header {
+	margin-bottom: 28px;
+}
+
+.observation-profile-card__header p,
+.observation-profile-card__grid p {
+	margin: 0 0 8px;
+	color: #d6f7a2;
+	font-size: 12px;
+	font-weight: 900;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+
+.observation-profile-card__header h2 {
+	margin: 0 0 14px;
+	color: #f3fff1;
+	font-size: clamp(48px, 6vw, 96px);
+	line-height: 1;
+}
+
+.observation-profile-card__header span {
+	display: block;
+	max-width: 84ch;
+	color: rgba(255, 255, 255, 0.78);
+	font-size: 16px;
+	line-height: 1.7;
+}
+
+.observation-profile-card__grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 14px;
+	margin-top: 28px;
+}
+
+.observation-profile-card__grid div {
+	min-height: 190px;
+	padding: 20px;
+	border: 1px solid rgba(153, 210, 116, 0.18);
+	background:
+		radial-gradient(circle at top right, rgba(153, 210, 116, 0.12), transparent 42%),
+		rgba(153, 210, 116, 0.06);
+}
+
+.observation-profile-card__grid strong {
+	display: block;
+	margin-bottom: 12px;
+	color: #f3fff1;
+	font-size: 22px;
+	line-height: 1.1;
+}
+
+.observation-profile-card__grid span {
+	color: rgba(255, 255, 255, 0.72);
+	font-size: 14px;
+	line-height: 1.55;
+}
+
 @keyframes observationPanelEnter {
 	from {
 		opacity: 0;
@@ -445,6 +533,19 @@
 	}
 }
 
+@keyframes observationScrollHintFloat {
+	0%,
+	100% {
+		opacity: 0.65;
+		transform: translate(-50%, 0);
+	}
+
+	50% {
+		opacity: 1;
+		transform: translate(-50%, 10px);
+	}
+}
+
 @media (max-width: 1100px) {
 	.observation-layout__section-nav {
 		display: none;
@@ -491,6 +592,14 @@
 
 	.observation-feature-card__matrix,
 	.observation-profile-card__tags {
+		grid-template-columns: 1fr;
+	}
+
+	.observation-scroll-hint {
+		display: none;
+	}
+
+	.observation-profile-card__grid {
 		grid-template-columns: 1fr;
 	}
 }

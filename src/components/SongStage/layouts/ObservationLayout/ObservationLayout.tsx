@@ -39,7 +39,7 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 			<div className="observation-layout__section-nav" aria-label="Observation section navigation">
 				<button type="button" onClick={() => scrollToSection("observation-hero")}>Hero</button>
 				<button type="button" onClick={() => scrollToSection("observation-spectrum")}>Spectrum</button>
-				<button type="button" onClick={() => scrollToSection("observation-feature")}>Feature</button>
+				<button type="button" onClick={() => scrollToSection("observation-feature")}>Skill</button>
 				<button type="button" onClick={() => scrollToSection("observation-profile")}>Profile</button>
 			</div>
 
@@ -74,6 +74,11 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 						fallbackInitial="N"
 						className="observation-hero__character"
 					/>
+
+					<div className="observation-scroll-hint">
+						<span>Scroll to inspect signal</span>
+						<strong>↓</strong>
+					</div>
 				</section>
 
 				<section id="observation-spectrum" className="observation-section observation-section--spectrum">
@@ -108,11 +113,39 @@ export function ObservationLayout({ song }: ObservationLayoutProps) {
 
 				<section id="observation-profile" className="observation-section observation-section--profile">
 					<div className="observation-profile-card">
-						<p>Character Profile</p>
-						<h2>Nahida</h2>
-						<span>
-							This section is reserved for the full character bio, name tag, quote, personality notes, and song-specific story connection.
-						</span>
+						<div className="observation-profile-card__header">
+							<p>Character Profile</p>
+							<h2>Nahida</h2>
+							<span>
+								A gentle observer who reads the world through dreams, emotions, and hidden signals. This slide treats the song like a small mind-reading stage where every memory becomes part of the melody.
+							</span>
+						</div>
+
+						<div className="observation-profile-card__grid">
+							<div>
+								<p>Role</p>
+								<strong>Dream Observer</strong>
+								<span>Reads hidden emotions inside the song world.</span>
+							</div>
+
+							<div>
+								<p>Visual Mood</p>
+								<strong>Dendro Signal</strong>
+								<span>Green glow, soft leaves, scan rings, and magical UI traces.</span>
+							</div>
+
+							<div>
+								<p>Song Moment</p>
+								<strong>KABOOM Reaction</strong>
+								<span>Calm observation meets sudden cute chaos when Klee enters the scene.</span>
+							</div>
+
+							<div>
+								<p>Secret Letter</p>
+								<strong>M</strong>
+								<span>The first hidden fragment of the secret word: MELODIA.</span>
+							</div>
+						</div>
 
 						<div className="observation-profile-card__tags">
 							<span>Soft Wisdom</span>
