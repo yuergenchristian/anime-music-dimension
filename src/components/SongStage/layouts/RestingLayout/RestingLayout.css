@@ -127,8 +127,8 @@
 .resting-hero__content {
 	position: relative;
 	z-index: 4;
-	width: min(640px, 46vw);
-	margin-left: 12px;
+	width: min(460px, 34vw);
+	margin-left: 88px;
 	display: grid;
 	gap: 22px;
 	animation: restingPanelEnter 0.8s ease both;
@@ -148,8 +148,9 @@
 }
 
 .resting-info-panel {
-	width: min(500px, 40vw);
+	width: min(420px, 32vw);
 	padding: 32px;
+	overflow: hidden;
 }
 
 .resting-info-panel__tag {
@@ -164,10 +165,13 @@
 
 .resting-info-panel__title {
 	margin: 0;
+	max-width: 100%;
 	color: #f4fbff;
-	font-size: clamp(58px, 8vw, 110px);
+	font-size: clamp(42px, 4.8vw, 76px);
 	font-weight: 900;
-	line-height: 0.9;
+	line-height: 0.92;
+	letter-spacing: -1px;
+	white-space: nowrap;
 	text-shadow: 0 0 16px rgba(171, 184, 236, 0.18);
 }
 
