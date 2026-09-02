@@ -165,9 +165,10 @@
 .themed-info-panel__title {
 	margin: 0;
 	color: #f7fbff;
-	font-size: clamp(58px, 8vw, 110px);
-	font-weight: 900;
-	line-height: 0.9;
+	font-size: clamp(64px, 6.8vw, 118px);
+	font-weight: 1000;
+	line-height: 0.86;
+	letter-spacing: -4px;
 	text-shadow: 0 0 16px color-mix(in srgb, var(--song-primary) 20%, transparent);
 }
 

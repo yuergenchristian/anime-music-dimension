@@ -12,6 +12,7 @@ type ThemedLayoutConfig = {
 	id: string;
 	characterName: string;
 	fallbackInitial: string;
+	heroTitle: string;
 	subtitle: string;
 	briefTitle: string;
 	briefText: string;
@@ -34,7 +35,8 @@ const layoutConfigs: Record<string, ThemedLayoutConfig> = {
 		id: "nostalgia",
 		characterName: "Yoimiya",
 		fallbackInitial: "Y",
-		subtitle: "Nostalgia",
+		heroTitle: "Nostalgia",
+		subtitle: "Festival Memory",
 		briefTitle: "Festival Brief",
 		briefText: "A warm night sky, ancient festival colors, and fireworks turning every memory into light.",
 		meta: ["Fireworks", "Festival Night", "Warm Memory"],
@@ -88,7 +90,8 @@ const layoutConfigs: Record<string, ThemedLayoutConfig> = {
 		id: "otona",
 		characterName: "Hu Tao",
 		fallbackInitial: "H",
-		subtitle: "Otona",
+		heroTitle: "Otona",
+		subtitle: "Ghost Carnival",
 		briefTitle: "Ghost Brief",
 		briefText: "A spooky-happy carnival of ghosts, coupons, mischief, dancing, and dramatic funeral business.",
 		meta: ["Ghost Deal", "Coupon", "Qiqi Chase"],
@@ -142,7 +145,8 @@ const layoutConfigs: Record<string, ThemedLayoutConfig> = {
 		id: "friendship",
 		characterName: "Diona",
 		fallbackInitial: "D",
-		subtitle: "Friendship",
+		heroTitle: "Friendship",
+		subtitle: "Cat Lounge",
 		briefTitle: "Lounge Brief",
 		briefText: "A cute cat-lounge stage with bartender energy, friendship sparks, and jumpy rhythm.",
 		meta: ["Cat Lounge", "Mocktail", "Friendship"],
@@ -196,7 +200,8 @@ const layoutConfigs: Record<string, ThemedLayoutConfig> = {
 		id: "pets",
 		characterName: "Qiqi",
 		fallbackInitial: "Q",
-		subtitle: "Pets",
+		heroTitle: "Pets",
+		subtitle: "Memory Journal",
 		briefTitle: "Memory Brief",
 		briefText: "A soft pastel memory journal full of cocomilk reminders, forgetful notes, and tiny pet-like warmth.",
 		meta: ["Cocomilk", "Wakaranai", "Memory Notes"],
@@ -250,7 +255,8 @@ const layoutConfigs: Record<string, ThemedLayoutConfig> = {
 		id: "kokoroe",
 		characterName: "Klee",
 		fallbackInitial: "K",
-		subtitle: "Kokoroe",
+		heroTitle: "Kokoroe",
+		subtitle: "Spark Knight",
 		briefTitle: "Adventure Brief",
 		briefText: "A cute explosive finale with running, discoveries, fish danger, Jean warnings, and innocent chaos.",
 		meta: ["Spark Knight", "Bomb Radar", "Adventure"],
@@ -339,7 +345,7 @@ export function ThemedSongLayout({ song }: ThemedSongLayoutProps) {
 					<div className="themed-hero__content">
 						<aside className="themed-info-panel">
 							<div className="themed-info-panel__tag">{song.ui.label}</div>
-							<h1 className="themed-info-panel__title">{song.title}</h1>
+							<h1 className="themed-info-panel__title">{config.heroTitle}</h1>
 							<p className="themed-info-panel__subtitle">{config.subtitle}</p>
 							<h2 className="themed-info-panel__artist">{song.artist}</h2>
 							<p className="themed-info-panel__description">{song.mood}</p>
