@@ -238,14 +238,14 @@
 .observation-hero__character {
 	position: absolute;
 	top: 15vh;
-	right: -5vw;
+	right: -9vw;
 	z-index: 3;
-	width: min(54vw, 860px);
+	width: min(56vw, 900px);
 	height: 155vh;
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
 	pointer-events: none;
+	--character-scale: 1;
+	--character-x: 0;
+	--character-y: 0;
 	animation: observationCharacterEnter 1s 0.12s ease both;
 }
 

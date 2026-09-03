@@ -251,6 +251,56 @@
 	animation: themedCharacterEnter 1s 0.12s ease both;
 }
 
+.themed-layout--nostalgia .themed-hero__character {
+	top: 6vh;
+	right: -10vw;
+	width: min(64vw, 1020px);
+	height: 168vh;
+	--character-scale: 1.18;
+	--character-x: 0;
+	--character-y: 0;
+}
+
+.themed-layout--otona .themed-hero__character {
+	top: 3vh;
+	right: -12vw;
+	width: min(66vw, 1060px);
+	height: 175vh;
+	--character-scale: 1.2;
+	--character-x: 0;
+	--character-y: 0;
+}
+
+.themed-layout--friendship .themed-hero__character {
+	top: 14vh;
+	right: -2vw;
+	width: min(44vw, 680px);
+	height: 150vh;
+	--character-scale: 1;
+	--character-x: 0;
+	--character-y: 0;
+}
+
+.themed-layout--pets .themed-hero__character {
+	top: 14vh;
+	right: -1vw;
+	width: min(44vw, 680px);
+	height: 150vh;
+	--character-scale: 1;
+	--character-x: 0;
+	--character-y: 0;
+}
+
+.themed-layout--kokoroe .themed-hero__character {
+	top: 6vh;
+	right: -8vw;
+	width: min(54vw, 860px);
+	height: 178vh;
+	--character-scale: 1;
+	--character-x: 0;
+	--character-y: 0;
+}
+
 .themed-status {
 	position: fixed;
 	z-index: 6;
