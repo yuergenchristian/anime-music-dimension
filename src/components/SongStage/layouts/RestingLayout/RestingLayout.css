@@ -241,15 +241,12 @@
 
 .resting-hero__character {
 	position: absolute;
-	top: 5vh;
-	right: -4vw;
+	top: 8vh;
+	right: -14%;
 	z-index: 3;
-	width: min(58vw, 900px);
-	height: 170vh;
+	width: min(56vw, 900px);
+	height: 222vh;
 	pointer-events: none;
-	--character-scale: 1.2;
-	--character-x: 2vw;
-	--character-y: 0;
 	animation: restingCharacterEnter 1s 0.12s ease both;
 }
 

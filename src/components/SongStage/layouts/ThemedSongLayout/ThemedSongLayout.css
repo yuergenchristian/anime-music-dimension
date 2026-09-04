@@ -243,62 +243,47 @@
 .themed-hero__character {
 	position: absolute;
 	top: 12vh;
-	right: -5vw;
+	right: 0;
 	z-index: 3;
 	width: min(54vw, 860px);
-	height: 155vh;
+	height: 148vh;
 	pointer-events: none;
 	animation: themedCharacterEnter 1s 0.12s ease both;
 }
 
 .themed-layout--nostalgia .themed-hero__character {
-	top: 6vh;
-	right: -10vw;
-	width: min(64vw, 1020px);
-	height: 168vh;
-	--character-scale: 1.18;
-	--character-x: 0;
-	--character-y: 0;
+	top: 8vh;
+	right: -18%;
+	width: min(58vw, 940px);
+	height: 200vh;
 }
 
 .themed-layout--otona .themed-hero__character {
-	top: 3vh;
-	right: -12vw;
-	width: min(66vw, 1060px);
-	height: 175vh;
-	--character-scale: 1.2;
-	--character-x: 0;
-	--character-y: 0;
+	top: 7vh;
+	right: -18%;
+	width: min(58vw, 940px);
+	height: 200vh;
 }
 
 .themed-layout--friendship .themed-hero__character {
-	top: 14vh;
-	right: -2vw;
-	width: min(44vw, 680px);
-	height: 150vh;
-	--character-scale: 1;
-	--character-x: 0;
-	--character-y: 0;
+	top: 12vh;
+	right: -9%;
+	width: min(50vw, 820px);
+	height: 165vh;
 }
 
 .themed-layout--pets .themed-hero__character {
-	top: 14vh;
-	right: -1vw;
-	width: min(44vw, 680px);
-	height: 150vh;
-	--character-scale: 1;
-	--character-x: 0;
-	--character-y: 0;
+	top: 12vh;
+	right: -9%;
+	width: min(50vw, 820px);
+	height: 165vh;
 }
 
 .themed-layout--kokoroe .themed-hero__character {
-	top: 6vh;
-	right: -8vw;
-	width: min(54vw, 860px);
-	height: 178vh;
-	--character-scale: 1;
-	--character-x: 0;
-	--character-y: 0;
+	top: 10vh;
+	right: -10%;
+	width: min(52vw, 840px);
+	height: 165vh;
 }
 
 .themed-status {

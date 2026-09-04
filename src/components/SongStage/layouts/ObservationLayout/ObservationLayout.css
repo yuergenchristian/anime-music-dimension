@@ -237,15 +237,12 @@
 
 .observation-hero__character {
 	position: absolute;
-	top: 15vh;
-	right: -9vw;
+	top: 12vh;
+	right: -8%;
 	z-index: 3;
-	width: min(56vw, 900px);
-	height: 155vh;
+	width: min(54vw, 860px);
+	height: 148vh;
 	pointer-events: none;
-	--character-scale: 1;
-	--character-x: 0;
-	--character-y: 0;
 	animation: observationCharacterEnter 1s 0.12s ease both;
 }
 
